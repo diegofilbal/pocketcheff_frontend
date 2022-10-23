@@ -1,27 +1,22 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:pockectcheff/screens/login/register_screen.dart';
-import 'package:pockectcheff/screens/login/reset_password_screen.dart';
+import 'package:pockectcheff/screens/login/login_screen.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+class RegisterScreen extends StatefulWidget {
+  const RegisterScreen({super.key});
 
   @override
-  _LoginScreenState createState() => _LoginScreenState();
+  State<RegisterScreen> createState() => _RegisterScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _RegisterScreenState extends State<RegisterScreen> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+  TextEditingController confirmPasswordController = TextEditingController();
+  TextEditingController nameController = TextEditingController();
   final GlobalKey<FormState> _formKey = GlobalKey();
 
-  bool _isSelected = false;
-  bool _isObscure = true;
-
-  @override
-  void initState() {
-    _isObscure = true;
-  }
+  bool _passwordObscure = true;
+  bool _confirmPasswordObscure = true;
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +36,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 Align(
                   alignment: Alignment.centerLeft,
                   child: Text(
-                    "Hey,",
+                    "Hey, novo por aqui?",
                     style: TextStyle(
                       fontSize: 25,
                       fontWeight: FontWeight.bold,
@@ -52,7 +47,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 Align(
                   alignment: Alignment.centerLeft,
                   child: Text(
-                    "bem vinde!",
+                    "Registre-se.",
                     style: TextStyle(
                       fontSize: 25,
                       fontWeight: FontWeight.bold,
@@ -66,7 +61,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 Row(
                   children: [
                     Text(
-                      "Novo por aqui? ",
+                      "Já é usuário? ",
                       style: TextStyle(
                         color: Color.fromARGB(255, 118, 118, 118),
                         fontWeight: FontWeight.bold,
@@ -75,7 +70,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                     InkWell(
                       child: new Text(
-                        'Crie uma conta.',
+                        'Faça login.',
                         style: TextStyle(
                           color: Color.fromARGB(255, 185, 48, 39),
                           fontWeight: FontWeight.bold,
@@ -85,19 +80,46 @@ class _LoginScreenState extends State<LoginScreen> {
                       onTap: () => Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const RegisterScreen(),
+                          builder: (context) => const LoginScreen(),
                         ),
                       ),
                     ),
                   ],
                 ),
-                SizedBox(
-                  height: 25,
-                ),
+                SizedBox(height: 15,),
                 Form(
                   key: _formKey,
                   child: Column(
                     children: <Widget>[
+                      TextFormField(
+                        cursorColor: Color.fromARGB(255, 185, 48, 39),
+                        keyboardType: TextInputType.name,
+                        decoration: const InputDecoration(
+                          filled: true,
+                          fillColor: Colors.white,
+                          border: InputBorder.none,
+                          labelText: "Nome",
+                          labelStyle: TextStyle(
+                            color: Colors.black,
+                            fontSize: 15,
+                          ),
+                        ),
+                        controller: nameController,
+                        style: TextStyle(
+                          color: Color.fromARGB(255, 0, 0, 0),
+                        ),
+                        textAlign: TextAlign.center,
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return "Insert your name";
+                          } else {
+                            return null;
+                          }
+                        },
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
                       TextFormField(
                         cursorColor: Color.fromARGB(255, 185, 48, 39),
                         keyboardType: TextInputType.emailAddress,
@@ -128,7 +150,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         height: 10,
                       ),
                       TextFormField(
-                        obscureText: _isObscure,
+                        obscureText: _passwordObscure,
                         cursorColor: Color.fromARGB(255, 185, 48, 39),
                         keyboardType: TextInputType.visiblePassword,
                         decoration: InputDecoration(
@@ -141,12 +163,12 @@ class _LoginScreenState extends State<LoginScreen> {
                             fontSize: 15,
                           ),
                           suffixIcon: IconButton(
-                              icon: Icon(_isObscure
+                              icon: Icon(_passwordObscure
                                   ? Icons.visibility
                                   : Icons.visibility_off),
                               onPressed: () {
                                 setState(() {
-                                  _isObscure = !_isObscure;
+                                  _passwordObscure = !_passwordObscure;
                                 });
                               }),
                         ),
@@ -164,42 +186,85 @@ class _LoginScreenState extends State<LoginScreen> {
                         },
                       ),
                       SizedBox(
-                        height: 25,
+                        height: 10,
                       ),
-                      Align(
-                        alignment: Alignment.centerLeft,
-                        child: InkWell(
-                          child: Row(
-                            children: <Widget>[
-                              Transform.scale(
-                                scale: 0.8,
-                                child: Checkbox(
-                                  activeColor: Color.fromARGB(255, 185, 48, 39),
-                                  checkColor: Colors.white,
-                                  fillColor: MaterialStateProperty.all(
-                                    Color.fromARGB(255, 185, 48, 39),
-                                  ),
-                                  value: _isSelected,
-                                  onChanged: (bool? newValue) {
-                                    setState(() {
-                                      _isSelected = newValue!;
-                                      print(_isSelected);
-                                    });
-                                  },
-                                ),
-                              ),
-                              Expanded(
-                                  child: Text(
-                                "Salvar credenciais",
-                                style: TextStyle(fontSize: 13),
-                              )),
-                            ],
+                      TextFormField(
+                        obscureText: _confirmPasswordObscure,
+                        cursorColor: Color.fromARGB(255, 185, 48, 39),
+                        keyboardType: TextInputType.visiblePassword,
+                        decoration: InputDecoration(
+                          filled: true,
+                          fillColor: Colors.white,
+                          border: InputBorder.none,
+                          labelText: "Confirm password",
+                          labelStyle: TextStyle(
+                            color: Color.fromARGB(255, 0, 0, 0),
+                            fontSize: 15,
                           ),
+                          suffixIcon: IconButton(
+                              icon: Icon(_confirmPasswordObscure
+                                  ? Icons.visibility
+                                  : Icons.visibility_off),
+                              onPressed: () {
+                                setState(() {
+                                  _confirmPasswordObscure =
+                                      !_confirmPasswordObscure;
+                                });
+                              }),
                         ),
+                        controller: confirmPasswordController,
+                        style: TextStyle(
+                          color: Color.fromARGB(255, 0, 0, 0),
+                        ),
+                        textAlign: TextAlign.center,
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return "Confirm your password";
+                          } else {
+                            return null;
+                          }
+                        },
                       ),
                       SizedBox(
-                        height: 65,
+                        height: 30,
                       ),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            "Ao clicar em Cadastrar, você concorda com",
+                            style: TextStyle(
+                              color: Color.fromARGB(255, 118, 118, 118),
+                              fontWeight: FontWeight.bold,
+                              fontSize: 11,
+                            ),
+                          ),
+                          Row(mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                          Text(
+                            "os nossos ",
+                            style: TextStyle(
+                              color: Color.fromARGB(255, 118, 118, 118),
+                              fontWeight: FontWeight.bold,
+                              fontSize: 11,
+                            ),
+                          ),
+                              InkWell(
+                                child: new Text(
+                                  'Termos de uso.',
+                                  style: TextStyle(
+                                    color: Color.fromARGB(255, 185, 48, 39),
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 11,
+                                  ),
+                                ),
+                                onTap: () => {},
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                      SizedBox(height: 10,),
                       ButtonTheme(
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
@@ -207,41 +272,8 @@ class _LoginScreenState extends State<LoginScreen> {
                             primary: Color.fromRGBO(255, 83, 71, 1),
                           ),
                           onPressed: () {},
-                          child: Text("Login"),
+                          child: Text("Cadastrar"),
                         ),
-                      ),
-                      SizedBox(
-                        height: 25,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            "Esqueceu senha? ",
-                            style: TextStyle(
-                              color: Color.fromARGB(255, 118, 118, 118),
-                              fontWeight: FontWeight.bold,
-                              fontSize: 11,
-                            ),
-                          ),
-                          InkWell(
-                            child: new Text(
-                              'Redefina.',
-                              style: TextStyle(
-                                color: Color.fromARGB(255, 185, 48, 39),
-                                fontWeight: FontWeight.bold,
-                                fontSize: 11,
-                              ),
-                            ),
-                            onTap: () => Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) =>
-                                    const ResetPasswordScreen(),
-                              ),
-                            ),
-                          ),
-                        ],
                       ),
                       SizedBox(
                         height: 15,
