@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:pockectcheff/screens/login/reset_password_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -97,7 +98,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   child: Column(
                     children: <Widget>[
                       TextFormField(
-                        cursorColor:Color.fromARGB(255, 185, 48, 39),
+                        cursorColor: Color.fromARGB(255, 185, 48, 39),
                         keyboardType: TextInputType.emailAddress,
                         decoration: const InputDecoration(
                           filled: true,
@@ -122,10 +123,12 @@ class _LoginScreenState extends State<LoginScreen> {
                           }
                         },
                       ),
-                      SizedBox(height: 10,),
+                      SizedBox(
+                        height: 10,
+                      ),
                       TextFormField(
                         obscureText: _isObscure,
-                        cursorColor:Color.fromARGB(255, 185, 48, 39),
+                        cursorColor: Color.fromARGB(255, 185, 48, 39),
                         keyboardType: TextInputType.visiblePassword,
                         decoration: InputDecoration(
                           filled: true,
@@ -137,12 +140,14 @@ class _LoginScreenState extends State<LoginScreen> {
                             fontSize: 15,
                           ),
                           suffixIcon: IconButton(
-                            icon: Icon(_isObscure ? Icons.visibility : Icons.visibility_off),
-                            onPressed: () {
-                              setState(() {
-                                _isObscure = !_isObscure;
-                              });
-                            }),
+                              icon: Icon(_isObscure
+                                  ? Icons.visibility
+                                  : Icons.visibility_off),
+                              onPressed: () {
+                                setState(() {
+                                  _isObscure = !_isObscure;
+                                });
+                              }),
                         ),
                         controller: passwordController,
                         style: TextStyle(
@@ -182,7 +187,11 @@ class _LoginScreenState extends State<LoginScreen> {
                                   },
                                 ),
                               ),
-                              Expanded(child: Text("Salvar credenciais", style: TextStyle(fontSize: 13),)),
+                              Expanded(
+                                  child: Text(
+                                "Salvar credenciais",
+                                style: TextStyle(fontSize: 13),
+                              )),
                             ],
                           ),
                         ),
@@ -201,7 +210,8 @@ class _LoginScreenState extends State<LoginScreen> {
                       SizedBox(
                         height: 25,
                       ),
-                      Row(mainAxisAlignment: MainAxisAlignment.center,
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
                             "Esqueceu senha? ",
@@ -212,15 +222,22 @@ class _LoginScreenState extends State<LoginScreen> {
                             ),
                           ),
                           InkWell(
-                              child: new Text(
-                                'Redefina.',
-                                style: TextStyle(
-                                  color: Color.fromARGB(255, 185, 48, 39),
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 11,
-                                ),
+                            child: new Text(
+                              'Redefina.',
+                              style: TextStyle(
+                                color: Color.fromARGB(255, 185, 48, 39),
+                                fontWeight: FontWeight.bold,
+                                fontSize: 11,
                               ),
-                              onTap: () => {}),
+                            ),
+                            onTap: () => Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    const ResetPasswordScreen(),
+                              ),
+                            ),
+                          ),
                         ],
                       ),
                       SizedBox(
