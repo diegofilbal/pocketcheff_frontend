@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:pockectcheff/screens/login/login_screen.dart';
 import 'package:pockectcheff/size_config.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -8,12 +9,12 @@ class HomeScreen extends StatelessWidget {
     SizeConfig().init(context);
     return Scaffold(
       appBar: buildAppBar(),
+      body: Center(child: buildHomeScreenBody(context)),
     );
   }
 
-  AppBar buildAppBar(){
+  AppBar buildAppBar() {
     return AppBar(
-
       leading: IconButton(
         icon: SvgPicture.asset("assets/icons/menu.svg"),
         onPressed: () {},
@@ -26,10 +27,37 @@ class HomeScreen extends StatelessWidget {
           onPressed: () {},
         ),
         SizedBox(
-          width: SizeConfig.defaultSize! * 0.5, 
-          )
+          width: SizeConfig.defaultSize! * 0.5,
+        )
       ],
     );
   }
 
+  Widget buildHomeScreenBody(BuildContext buildContext) {
+    return SingleChildScrollView(
+      child: Container(
+        child: Column(
+          children: <Widget>[
+            ButtonTheme(
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(primary: Color.fromARGB(255, 255, 67, 54)),
+                onPressed: (() async => await Navigator.push(
+                      buildContext,
+                      MaterialPageRoute(
+                        builder: (buildContext) => const LoginScreen(),
+                      ),
+                    )),
+                child: Text(
+                  "Sign in",
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
 }
