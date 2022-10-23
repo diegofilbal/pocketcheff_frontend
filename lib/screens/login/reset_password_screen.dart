@@ -52,12 +52,15 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                 SizedBox(
                   height: 15,
                 ),
-                Text(
-                  "Insira um e-mail no campo abaixo. Caso esteja associado a um usuário, enviaremos as instruções para redefinição de senha.",
-                  style: TextStyle(
-                    color: Color.fromARGB(255, 118, 118, 118),
-                    fontWeight: FontWeight.bold,
-                    fontSize: 11,
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    "Insira um e-mail no campo abaixo. Caso esteja associado a um usuário, enviaremos as instruções para redefinição de senha.",
+                    style: TextStyle(
+                      color: Color.fromARGB(255, 118, 118, 118),
+                      fontWeight: FontWeight.bold,
+                      fontSize: 11,
+                    ),
                   ),
                 ),
                 SizedBox(

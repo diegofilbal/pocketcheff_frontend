@@ -92,7 +92,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ],
                 ),
                 SizedBox(
-                  height: 25,
+                  height: 30,
                 ),
                 Form(
                   key: _formKey,
@@ -164,7 +164,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         },
                       ),
                       SizedBox(
-                        height: 25,
+                        height: 15,
                       ),
                       Align(
                         alignment: Alignment.centerLeft,
