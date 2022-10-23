@@ -198,7 +198,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                       ),
                       SizedBox(
-                        height: 65,
+                        height: 50,
                       ),
                       ButtonTheme(
                         child: ElevatedButton(

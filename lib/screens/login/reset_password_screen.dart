@@ -96,7 +96,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                   ),
                 ),
                 SizedBox(
-                  height: 60,
+                  height: 45,
                 ),
                 ButtonTheme(
                   child: SizedBox(
