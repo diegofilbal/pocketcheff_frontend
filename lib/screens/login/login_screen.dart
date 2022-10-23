@@ -163,7 +163,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         },
                       ),
                       SizedBox(
-                        height: 30,
+                        height: 25,
                       ),
                       Align(
                         alignment: Alignment.centerLeft,
@@ -197,12 +197,14 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                       ),
                       SizedBox(
-                        height: 80,
+                        height: 65,
                       ),
                       ButtonTheme(
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
-                              primary: Color.fromRGBO(255, 83, 71, 1)),
+                            minimumSize: const Size.fromHeight(50),
+                            primary: Color.fromRGBO(255, 83, 71, 1),
+                          ),
                           onPressed: () {},
                           child: Text("Login"),
                         ),

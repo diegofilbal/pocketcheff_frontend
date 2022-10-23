@@ -50,7 +50,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                   ),
                 ),
                 SizedBox(
-                  height: 10,
+                  height: 15,
                 ),
                 Text(
                   "Insira um e-mail no campo abaixo. Caso esteja associado a um usuário, enviaremos as instruções para redefinição de senha.",
@@ -92,30 +92,34 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                     },
                   ),
                 ),
-                        SizedBox(
-                          height: 60,
-                        ),
-                        ButtonTheme(
-                          child: ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                                primary: Color.fromRGBO(255, 83, 71, 1)),
-                            onPressed: () {},
-                            child: Text("Redefinir"),
-                          ),
-                        ),
-                        SizedBox(
-                          height: 25,
-                        ),
-                        InkWell(
-                            child: new Text(
-                              'Voltar para login',
-                              style: TextStyle(
-                                color: Color.fromARGB(255, 118, 118, 118),
-                                fontWeight: FontWeight.bold,
-                                fontSize: 11,
-                              ),
-                            ),
-                            onTap: () => Navigator.push(
+                SizedBox(
+                  height: 60,
+                ),
+                ButtonTheme(
+                  child: SizedBox(
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        minimumSize: const Size.fromHeight(50),
+                        primary: Color.fromRGBO(255, 83, 71, 1),
+                      ),
+                      onPressed: () {},
+                      child: Text("Redefinir"),
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: 25,
+                ),
+                InkWell(
+                    child: new Text(
+                      'Voltar para login',
+                      style: TextStyle(
+                        color: Color.fromARGB(255, 118, 118, 118),
+                        fontWeight: FontWeight.bold,
+                        fontSize: 11,
+                      ),
+                    ),
+                    onTap: () => Navigator.push(
                           context,
                           MaterialPageRoute(
                             builder: (context) => const LoginScreen(),
