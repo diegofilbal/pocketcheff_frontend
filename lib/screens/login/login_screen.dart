@@ -13,6 +13,8 @@ class _LoginScreenState extends State<LoginScreen> {
   TextEditingController passwordController = TextEditingController();
   final GlobalKey<FormState> _formKey = GlobalKey();
 
+  bool _isSelected = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,15 +30,17 @@ class _LoginScreenState extends State<LoginScreen> {
           child: SingleChildScrollView(
             child: Column(
               children: [
-                Align(alignment: Alignment.centerLeft, child:
-                Text(
-                  "Hey,",
-                  style: TextStyle(
-                    fontSize: 25,
-                    fontWeight: FontWeight.bold,
-                    color: Color.fromARGB(255, 78, 28, 24),
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    "Hey,",
+                    style: TextStyle(
+                      fontSize: 25,
+                      fontWeight: FontWeight.bold,
+                      color: Color.fromARGB(255, 78, 28, 24),
+                    ),
                   ),
-                ),),
+                ),
                 Align(
                   alignment: Alignment.centerLeft,
                   child: Text(
@@ -131,7 +135,37 @@ class _LoginScreenState extends State<LoginScreen> {
                         },
                       ),
                       SizedBox(
-                        height: 20,
+                        height: 30,
+                      ),
+                      Align(
+                        alignment: Alignment.centerLeft,
+                        child: InkWell(
+                          child: Row(
+                            children: <Widget>[
+                              Transform.scale(
+                                scale: 0.8,
+                                child: Checkbox(
+                                  activeColor: Color.fromARGB(255, 185, 48, 39),
+                                  checkColor: Colors.white,
+                                  fillColor: MaterialStateProperty.all(
+                                    Color.fromARGB(255, 185, 48, 39),
+                                  ),
+                                  value: _isSelected,
+                                  onChanged: (bool? newValue) {
+                                    setState(() {
+                                      _isSelected = newValue!;
+                                      print(_isSelected);
+                                    });
+                                  },
+                                ),
+                              ),
+                              Expanded(child: Text("Salvar credenciais", style: TextStyle(fontSize: 13),)),
+                            ],
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 80,
                       ),
                       ButtonTheme(
                         child: ElevatedButton(
@@ -141,6 +175,44 @@ class _LoginScreenState extends State<LoginScreen> {
                           child: Text("Login"),
                         ),
                       ),
+                      SizedBox(
+                        height: 25,
+                      ),
+                      Row(mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            "Esqueceu senha? ",
+                            style: TextStyle(
+                              color: Color.fromARGB(255, 118, 118, 118),
+                              fontWeight: FontWeight.bold,
+                              fontSize: 11,
+                            ),
+                          ),
+                          InkWell(
+                              child: new Text(
+                                'Redefina.',
+                                style: TextStyle(
+                                  color: Color.fromARGB(255, 185, 48, 39),
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 11,
+                                ),
+                              ),
+                              onTap: () => {}),
+                        ],
+                      ),
+                      SizedBox(
+                        height: 15,
+                      ),
+                      InkWell(
+                          child: new Text(
+                            'Usar sem login',
+                            style: TextStyle(
+                              color: Color.fromARGB(255, 118, 118, 118),
+                              fontWeight: FontWeight.bold,
+                              fontSize: 11,
+                            ),
+                          ),
+                          onTap: () => {}),
                     ],
                   ),
                 ),
