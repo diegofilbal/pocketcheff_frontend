@@ -68,33 +68,34 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                 ),
                 Form(
                   key: _formKey,
-                  child: TextFormField(
-                    cursorColor: Color.fromARGB(255, 185, 48, 39),
-                    keyboardType: TextInputType.emailAddress,
-                    decoration: const InputDecoration(
-                      filled: true,
-                      fillColor: Colors.white,
-                      border: InputBorder.none,
-                      labelText: "E-mail",
-                      labelStyle: TextStyle(
-                        color: Colors.black,
-                        fontSize: 15,
+                  child: Column(
+                    children: [
+                      TextFormField(
+                        cursorColor: Color.fromARGB(255, 185, 48, 39),
+                        keyboardType: TextInputType.emailAddress,
+                        decoration: const InputDecoration(
+                          filled: true,
+                          fillColor: Colors.white,
+                          border: InputBorder.none,
+                          labelText: "E-mail",
+                          labelStyle: TextStyle(
+                            color: Colors.black,
+                            fontSize: 15,
+                          ),
+                        ),
+                        controller: emailController,
+                        style: TextStyle(
+                          color: Color.fromARGB(255, 0, 0, 0),
+                        ),
+                        textAlign: TextAlign.center,
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return "Insert your email";
+                          } else {
+                            return null;
+                          }
+                        },
                       ),
-                    ),
-                    controller: emailController,
-                    style: TextStyle(
-                      color: Color.fromARGB(255, 0, 0, 0),
-                    ),
-                    textAlign: TextAlign.center,
-                    validator: (value) {
-                      if (value!.isEmpty) {
-                        return "Insert your email";
-                      } else {
-                        return null;
-                      }
-                    },
-                  ),
-                ),
                 SizedBox(
                   height: 45,
                 ),
@@ -108,6 +109,9 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                       onPressed: () {},
                       child: Text("Redefinir"),
                     ),
+                  ),
+                ),
+                    ],
                   ),
                 ),
                 SizedBox(
