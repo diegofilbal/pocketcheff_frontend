@@ -14,6 +14,12 @@ class _LoginScreenState extends State<LoginScreen> {
   final GlobalKey<FormState> _formKey = GlobalKey();
 
   bool _isSelected = false;
+  bool _isObscure = true;
+
+  @override
+  void initState() {
+    _isObscure = true;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -91,8 +97,12 @@ class _LoginScreenState extends State<LoginScreen> {
                   child: Column(
                     children: <Widget>[
                       TextFormField(
+                        cursorColor:Color.fromARGB(255, 185, 48, 39),
                         keyboardType: TextInputType.emailAddress,
                         decoration: const InputDecoration(
+                          filled: true,
+                          fillColor: Colors.white,
+                          border: InputBorder.none,
                           labelText: "E-mail",
                           labelStyle: TextStyle(
                             color: Colors.black,
@@ -101,7 +111,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                         controller: emailController,
                         style: TextStyle(
-                          color: Color.fromARGB(255, 255, 255, 255),
+                          color: Color.fromARGB(255, 0, 0, 0),
                         ),
                         textAlign: TextAlign.center,
                         validator: (value) {
@@ -112,18 +122,31 @@ class _LoginScreenState extends State<LoginScreen> {
                           }
                         },
                       ),
+                      SizedBox(height: 10,),
                       TextFormField(
-                        keyboardType: TextInputType.emailAddress,
-                        decoration: const InputDecoration(
+                        obscureText: _isObscure,
+                        cursorColor:Color.fromARGB(255, 185, 48, 39),
+                        keyboardType: TextInputType.visiblePassword,
+                        decoration: InputDecoration(
+                          filled: true,
+                          fillColor: Colors.white,
+                          border: InputBorder.none,
                           labelText: "Password",
                           labelStyle: TextStyle(
                             color: Color.fromARGB(255, 0, 0, 0),
                             fontSize: 15,
                           ),
+                          suffixIcon: IconButton(
+                            icon: Icon(_isObscure ? Icons.visibility : Icons.visibility_off),
+                            onPressed: () {
+                              setState(() {
+                                _isObscure = !_isObscure;
+                              });
+                            }),
                         ),
                         controller: passwordController,
                         style: TextStyle(
-                          color: Color.fromARGB(255, 255, 255, 255),
+                          color: Color.fromARGB(255, 0, 0, 0),
                         ),
                         textAlign: TextAlign.center,
                         validator: (value) {
