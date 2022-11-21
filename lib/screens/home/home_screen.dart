@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:pockectcheff/screens/login/login_screen.dart';
+import 'package:pockectcheff/screens/search_recipe/ingredients_screen.dart';
 import 'package:pockectcheff/size_config.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -44,11 +45,29 @@ class HomeScreen extends StatelessWidget {
                 onPressed: (() async => await Navigator.push(
                       buildContext,
                       MaterialPageRoute(
+                        builder: (buildContext) => const IngredientsScreen(),
+                      ),
+                    )),
+                child: Text(
+                  "Procure por receitas",
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+            ),
+            SizedBox(height: 20,),
+            ButtonTheme(
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(primary: Color.fromARGB(255, 255, 67, 54)),
+                onPressed: (() async => await Navigator.push(
+                      buildContext,
+                      MaterialPageRoute(
                         builder: (buildContext) => const LoginScreen(),
                       ),
                     )),
                 child: Text(
-                  "Sign in",
+                  "Sou usuárie",
                   style: TextStyle(
                     color: Colors.white,
                   ),
