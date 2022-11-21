@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:pockectcheff/screens/login/login_screen.dart';
 
+import '../home/home_screen.dart';
+
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({super.key});
 
@@ -86,7 +88,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     ),
                   ],
                 ),
-                SizedBox(height: 15,),
+                SizedBox(
+                  height: 15,
+                ),
                 Form(
                   key: _formKey,
                   child: Column(
@@ -239,16 +243,17 @@ class _RegisterScreenState extends State<RegisterScreen> {
                               fontSize: 11,
                             ),
                           ),
-                          Row(mainAxisAlignment: MainAxisAlignment.center,
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                          Text(
-                            "os nossos ",
-                            style: TextStyle(
-                              color: Color.fromARGB(255, 118, 118, 118),
-                              fontWeight: FontWeight.bold,
-                              fontSize: 11,
-                            ),
-                          ),
+                              Text(
+                                "os nossos ",
+                                style: TextStyle(
+                                  color: Color.fromARGB(255, 118, 118, 118),
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 11,
+                                ),
+                              ),
                               InkWell(
                                 child: new Text(
                                   'Termos de uso.',
@@ -264,7 +269,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           ),
                         ],
                       ),
-                      SizedBox(height: 10,),
+                      SizedBox(
+                        height: 10,
+                      ),
                       ButtonTheme(
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
@@ -279,15 +286,21 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         height: 15,
                       ),
                       InkWell(
-                          child: new Text(
-                            'Usar sem login',
-                            style: TextStyle(
-                              color: Color.fromARGB(255, 118, 118, 118),
-                              fontWeight: FontWeight.bold,
-                              fontSize: 11,
-                            ),
+                        child: new Text(
+                          'Usar sem login',
+                          style: TextStyle(
+                            color: Color.fromARGB(255, 118, 118, 118),
+                            fontWeight: FontWeight.bold,
+                            fontSize: 11,
                           ),
-                          onTap: () => {}),
+                        ),
+                        onTap: () => Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => HomeScreen(),
+                          ),
+                        ),
+                      ),
                     ],
                   ),
                 ),

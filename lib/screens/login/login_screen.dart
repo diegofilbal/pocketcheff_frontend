@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:pockectcheff/screens/home/home_screen.dart';
 import 'package:pockectcheff/screens/login/register_screen.dart';
 import 'package:pockectcheff/screens/login/reset_password_screen.dart';
 
@@ -247,15 +248,21 @@ class _LoginScreenState extends State<LoginScreen> {
                         height: 15,
                       ),
                       InkWell(
-                          child: new Text(
-                            'Usar sem login',
-                            style: TextStyle(
-                              color: Color.fromARGB(255, 118, 118, 118),
-                              fontWeight: FontWeight.bold,
-                              fontSize: 11,
-                            ),
+                        child: new Text(
+                          'Usar sem login',
+                          style: TextStyle(
+                            color: Color.fromARGB(255, 118, 118, 118),
+                            fontWeight: FontWeight.bold,
+                            fontSize: 11,
                           ),
-                          onTap: () => {}),
+                        ),
+                        onTap: () => Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => HomeScreen(),
+                          ),
+                        ),
+                      ),
                     ],
                   ),
                 ),
