@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:pockectcheff/screens/home/home_screen.dart';
 import 'package:pockectcheff/screens/login/register_screen.dart';
 import 'package:pockectcheff/screens/login/reset_password_screen.dart';
+import 'package:pockectcheff/screens/search_recipe/food_restrictions.dart';
 
 class IngredientsScreen extends StatefulWidget {
   const IngredientsScreen({super.key});
@@ -15,7 +16,7 @@ class _IngredientsScreenState extends State<IngredientsScreen> {
   TextEditingController ingredientsController = TextEditingController();
   final GlobalKey<FormState> _formKey = GlobalKey();
 
-  List<String> ingredients = [];
+  static List<String> ingredients = [];
   String alert = '';
 
   @override
@@ -29,9 +30,9 @@ class _IngredientsScreenState extends State<IngredientsScreen> {
             children: [
               Padding(
                 padding: const EdgeInsets.fromLTRB(
-                  10,
+                  15,
                   30,
-                  10,
+                  15,
                   30,
                 ),
                 child: Column(
@@ -243,9 +244,19 @@ class _IngredientsScreenState extends State<IngredientsScreen> {
                         ButtonTheme(
                           child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
-                              primary: Color.fromRGBO(255, 83, 71, 1),
+                              primary: ingredients.isEmpty
+                              ? Colors.grey
+                              : Color.fromRGBO(255, 83, 71, 1),
                             ),
-                            onPressed: () {},
+                            onPressed:  ingredients.isEmpty
+                            ? () {}
+                            : () {
+                              Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => FoodRestrictions(),
+                              ),
+                            );},
                             child: Text("Avançar"),
                           ),
                         ),
