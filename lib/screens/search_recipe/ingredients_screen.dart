@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:pockectcheff/screens/home/home_screen.dart';
 import 'package:pockectcheff/screens/login/register_screen.dart';
 import 'package:pockectcheff/screens/login/reset_password_screen.dart';
-import 'package:pockectcheff/screens/search_recipe/food_restrictions.dart';
+import 'package:pockectcheff/screens/search_recipe/food_restrictions_screen.dart';
+
+import '../../models/SearchTopics.dart';
 
 class IngredientsScreen extends StatefulWidget {
   const IngredientsScreen({super.key});
@@ -15,6 +17,7 @@ class IngredientsScreen extends StatefulWidget {
 class _IngredientsScreenState extends State<IngredientsScreen> {
   TextEditingController ingredientsController = TextEditingController();
   final GlobalKey<FormState> _formKey = GlobalKey();
+  static SearchTopics IngredientsTopics = SearchTopics();
 
   static List<String> ingredients = [];
   String alert = '';
@@ -251,10 +254,15 @@ class _IngredientsScreenState extends State<IngredientsScreen> {
                             onPressed:  ingredients.isEmpty
                             ? () {}
                             : () {
+                              setState(() {
+                                IngredientsTopics.ingredients = ingredients;
+                              });
+                              print(">>>>>>>>>>>>>>$ingredients");
+                              print(">>>>>>>>>>>>>>:::::${IngredientsTopics.ingredients}");
                               Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => FoodRestrictions(),
+                                builder: (context) => FoodRestrictionsScreen(topics: IngredientsTopics,),
                               ),
                             );},
                             child: Text("Avançar"),
