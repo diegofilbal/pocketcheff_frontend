@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "571903209511",
+    "project_id": "pocketcheff-dspm",
+    "storage_bucket": "pocketcheff-dspm.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:571903209511:android:cbf00cb0d6fe9b8b2e9e02",
+        "android_client_info": {
+          "package_name": "com.example.pockectcheff"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "571903209511-prdsf4814csbm4spl137fkovfa3pmbe3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBr-_PdtJOPiJkKE_iG9mQLDB4MSqGrPTI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "571903209511-prdsf4814csbm4spl137fkovfa3pmbe3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
