@@ -103,7 +103,8 @@ class _IngredientsScreenState extends State<IngredientsScreen> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Container(
-                                width: 155,
+                                width: 200,
+                                height: 40,
                                 child: TextFormField(
                                   cursorColor: Color.fromARGB(255, 185, 48, 39),
                                   keyboardType: TextInputType.emailAddress,
@@ -111,6 +112,10 @@ class _IngredientsScreenState extends State<IngredientsScreen> {
                                     filled: true,
                                     fillColor: Colors.white,
                                     border: InputBorder.none,
+                                    enabledBorder: OutlineInputBorder(
+                                      borderSide: BorderSide(
+                                          width: 3, color: Color.fromARGB(255, 255, 67, 54)), //<-- SEE HERE
+                                    ),
                                     hintText: "Ingrediente",
                                     hintStyle: TextStyle(
                                       color: Color.fromARGB(255, 129, 129, 129),
@@ -142,6 +147,7 @@ class _IngredientsScreenState extends State<IngredientsScreen> {
                                 child: ElevatedButton(
                                   style: ElevatedButton.styleFrom(
                                     primary: Color.fromRGBO(255, 83, 71, 1),
+                                    fixedSize: const Size(50, 40)
                                   ),
                                   onPressed: () {
                                     setState(() {
