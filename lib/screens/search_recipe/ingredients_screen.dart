@@ -110,6 +110,7 @@ class _IngredientsScreenState extends State<IngredientsScreen> {
                                   decoration: const InputDecoration(
                                     filled: true,
                                     fillColor: Colors.white,
+                                    border: InputBorder.none,
                                     enabledBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
                                           width: 3, color: Color.fromARGB(255, 255, 67, 54)), //<-- SEE HERE
