@@ -103,7 +103,8 @@ class _IngredientsScreenState extends State<IngredientsScreen> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Container(
-                                width: 155,
+                                width: 200,
+                                height: 40,
                                 child: TextFormField(
                                   cursorColor: Color.fromARGB(255, 185, 48, 39),
                                   keyboardType: TextInputType.emailAddress,
@@ -146,6 +147,7 @@ class _IngredientsScreenState extends State<IngredientsScreen> {
                                 child: ElevatedButton(
                                   style: ElevatedButton.styleFrom(
                                     primary: Color.fromRGBO(255, 83, 71, 1),
+                                    fixedSize: const Size(50, 40)
                                   ),
                                   onPressed: () {
                                     setState(() {
