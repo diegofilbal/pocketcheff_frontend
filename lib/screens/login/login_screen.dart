@@ -1,8 +1,11 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:pockectcheff/screens/home/home_screen.dart';
 import 'package:pockectcheff/screens/login/register_screen.dart';
 import 'package:pockectcheff/screens/login/reset_password_screen.dart';
+
+import '../search_recipe/ingredients_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -15,6 +18,8 @@ class _LoginScreenState extends State<LoginScreen> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   final GlobalKey<FormState> _formKey = GlobalKey();
+
+  final _firebaseAuth = FirebaseAuth.instance;
 
   bool _isSelected = false;
   bool _isObscure = true;
@@ -207,7 +212,9 @@ class _LoginScreenState extends State<LoginScreen> {
                             minimumSize: const Size.fromHeight(50),
                             primary: Color.fromRGBO(255, 83, 71, 1),
                           ),
-                          onPressed: () {},
+                          onPressed: () {
+                            login();
+                          },
                           child: Text("Login"),
                         ),
                       ),
@@ -272,5 +279,36 @@ class _LoginScreenState extends State<LoginScreen> {
         ),
       ),
     );
+  }
+
+  login() async{
+    try{
+      UserCredential userCredential = await _firebaseAuth.signInWithEmailAndPassword(
+        email: emailController.text,
+        password: passwordController.text,
+      );
+      if(userCredential != null){
+          Navigator.pushReplacement(
+            context, 
+            MaterialPageRoute(
+             builder: (context) => IngredientsScreen(),
+            ),
+        );
+      }
+    } on FirebaseAuthException catch(e){
+      if(e.code == 'user-not-found'){
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('Usuário não encontrado!'),
+          backgroundColor: Colors.redAccent,
+          ),
+        );
+      }else if(e.code == 'wrong-password'){
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('Senha incorreta!'),
+          backgroundColor: Colors.redAccent,
+          ),
+        );
+      }
+    }
   }
 }

@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:pockectcheff/screens/login/checagem_page.dart';
 import 'firebase_options.dart';
 import 'package:pockectcheff/screens/home/home_screen.dart';
 
-void main() {
+void main() async{
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
@@ -23,7 +24,7 @@ class MyApp extends StatelessWidget {
         backgroundColor: Colors.white,
         appBarTheme: AppBarTheme(color: Colors.white, elevation: 0),
       ),
-      home: HomeScreen(),
+      home: ChecagemPage(),//HomeScreen(),
     );
   }
 }

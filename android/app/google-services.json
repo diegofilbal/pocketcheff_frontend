@@ -29,6 +29,13 @@
             {
               "client_id": "571903209511-prdsf4814csbm4spl137fkovfa3pmbe3.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "571903209511-148mndrc2ct98gdlh1ulqrp4tn5giu5u.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.pockectcheff"
+              }
             }
           ]
         }
