@@ -1,4 +1,6 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:pockectcheff/screens/login/checagem_page.dart';
 import 'package:pockectcheff/screens/login/login_screen.dart';
 
 import '../home/home_screen.dart';
@@ -16,6 +18,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
   TextEditingController confirmPasswordController = TextEditingController();
   TextEditingController nameController = TextEditingController();
   final GlobalKey<FormState> _formKey = GlobalKey();
+  final _firebaseAuth = FirebaseAuth.instance;
 
   bool _passwordObscure = true;
   bool _confirmPasswordObscure = true;
@@ -278,7 +281,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             minimumSize: const Size.fromHeight(50),
                             primary: Color.fromRGBO(255, 83, 71, 1),
                           ),
-                          onPressed: () {},
+                          onPressed: () {
+                            cadastrar();
+                          },
                           child: Text("Cadastrar"),
                         ),
                       ),
@@ -310,5 +315,38 @@ class _RegisterScreenState extends State<RegisterScreen> {
         ),
       ),
     );
+  }
+
+  cadastrar() async {
+    try {
+      UserCredential userCredential =
+          await _firebaseAuth.createUserWithEmailAndPassword(
+              email: emailController.text, password: passwordController.text);
+      if (userCredential != null) {
+        userCredential.user!.updateDisplayName(nameController.text);
+        Navigator.pushAndRemoveUntil(
+            context,
+            MaterialPageRoute(
+              builder: (context) => ChecagemPage(),
+            ),
+            (route) => false);
+      }
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'weak-password') {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('Insira uma senha mais forte!'),
+            backgroundColor: Colors.redAccent,
+          ),
+        );
+      } else if (e.code == 'email-already-in-use') {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('Esse e-mail já está em uso!'),
+            backgroundColor: Colors.redAccent,
+          ),
+        );
+      }
+    }
   }
 }
