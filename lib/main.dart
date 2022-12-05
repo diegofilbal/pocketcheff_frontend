@@ -23,7 +23,8 @@ class MyApp extends StatelessWidget {
         backgroundColor: Colors.white,
         appBarTheme: AppBarTheme(color: Colors.white, elevation: 0),
       ),
-      home: ChecagemPage(),//HomeScreen(),
+        home: ChecagemPage(),
+        debugShowCheckedModeBanner: false
     );
   }
 }

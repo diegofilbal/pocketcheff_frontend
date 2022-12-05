@@ -1,11 +1,15 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:pockectcheff/models/Recipe.dart';
 import 'package:pockectcheff/screens/home/home_screen.dart';
 import 'package:pockectcheff/screens/login/checagem_page.dart';
 import 'package:pockectcheff/screens/login/register_screen.dart';
 import 'package:pockectcheff/screens/login/reset_password_screen.dart';
 import 'package:pockectcheff/screens/search_recipe/food_restrictions_screen.dart';
+import 'package:pockectcheff/snippets/firestore.dart';
 
 import '../../models/SearchTopics.dart';
 
@@ -236,12 +240,17 @@ class _IngredientsScreenState extends State<IngredientsScreen> {
                             style: ElevatedButton.styleFrom(
                               primary: Color.fromRGBO(255, 83, 71, 1),
                             ),
-                            onPressed: () => Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => sair(),
-                              ),
-                            ),
+                            onPressed: () async {
+                              _firebaseAuth.signOut().then(
+                                    (user) => Navigator.pushReplacement(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) =>
+                                            const ChecagemPage(),
+                                      ),
+                                    ),
+                                  );
+                            },
                             child: Text("Sair"),
                           ),
                         ),
@@ -305,17 +314,6 @@ class _IngredientsScreenState extends State<IngredientsScreen> {
               )
             ],
           ),
-        ),
-      ),
-    );
-  }
-
-  sair() {
-    _firebaseAuth.signOut().then(
-      (user) => Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(
-              builder: (context) => const ChecagemPage(),
         ),
       ),
     );

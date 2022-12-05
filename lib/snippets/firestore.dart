@@ -6,12 +6,13 @@ class FirestoreSnippets {
 
   FirestoreSnippets(this.db);
 
-  void readData() async {
+  Future<List<Recipe>> readData() async {
     List<Recipe>? recipes;
     await db.collection("receitas").get().then((event) {
       for (var doc in event.docs) {
         recipes?.add(Recipe.fromFirestore(doc, null));
       }
     });
+    return Future<List<Recipe>>.value(recipes);
   }
 }

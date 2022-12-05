@@ -44,40 +44,40 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyD4iqWpfP9Fw3w68Bnb7gaRbEFKn47D5sE',
-    appId: '1:1039045997366:web:76254f28cce26223937997',
-    messagingSenderId: '1039045997366',
-    projectId: 'pocketcheff-dspm2',
-    authDomain: 'pocketcheff-dspm2.firebaseapp.com',
-    storageBucket: 'pocketcheff-dspm2.appspot.com',
-    measurementId: 'G-VLJB2PYJRZ',
+    apiKey: 'AIzaSyCOhId0UXqTAhyT1mlodzmAzAmVNm3Ik5Q',
+    appId: '1:1033594137931:web:25534945e4bdb81db24cce',
+    messagingSenderId: '1033594137931',
+    projectId: 'pocketcheff-firebase',
+    authDomain: 'pocketcheff-firebase.firebaseapp.com',
+    storageBucket: 'pocketcheff-firebase.appspot.com',
+    measurementId: 'G-X2W4NRCJPN',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyD8IhNAhBVdgN9DQcuB5N5CybUiF8McNrs',
-    appId: '1:1039045997366:android:d2193168805d3cda937997',
-    messagingSenderId: '1039045997366',
-    projectId: 'pocketcheff-dspm2',
-    storageBucket: 'pocketcheff-dspm2.appspot.com',
+    apiKey: 'AIzaSyD-Fyf1E5ZbXRisRBsFjuxPpCBM4ruoD0Y',
+    appId: '1:1033594137931:android:19ab6c040a021650b24cce',
+    messagingSenderId: '1033594137931',
+    projectId: 'pocketcheff-firebase',
+    storageBucket: 'pocketcheff-firebase.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyBqNYHcDMpYCwPQUsvBIxKgXkSbhBd_sb4',
-    appId: '1:1039045997366:ios:0ea0d93d62e6b8bf937997',
-    messagingSenderId: '1039045997366',
-    projectId: 'pocketcheff-dspm2',
-    storageBucket: 'pocketcheff-dspm2.appspot.com',
-    iosClientId: '1039045997366-vcas660khaj7oq7pjs4bskrc2c1cd4ee.apps.googleusercontent.com',
+    apiKey: 'AIzaSyC6198Y_2oL4nFqDo1twlwySbo_m7GXcuA',
+    appId: '1:1033594137931:ios:a106059a8c5e8a20b24cce',
+    messagingSenderId: '1033594137931',
+    projectId: 'pocketcheff-firebase',
+    storageBucket: 'pocketcheff-firebase.appspot.com',
+    iosClientId: '1033594137931-s96ml5r2suf8qk90apukftosv9g8mlr2.apps.googleusercontent.com',
     iosBundleId: 'com.example.pockectcheff',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyBqNYHcDMpYCwPQUsvBIxKgXkSbhBd_sb4',
-    appId: '1:1039045997366:ios:0ea0d93d62e6b8bf937997',
-    messagingSenderId: '1039045997366',
-    projectId: 'pocketcheff-dspm2',
-    storageBucket: 'pocketcheff-dspm2.appspot.com',
-    iosClientId: '1039045997366-vcas660khaj7oq7pjs4bskrc2c1cd4ee.apps.googleusercontent.com',
+    apiKey: 'AIzaSyC6198Y_2oL4nFqDo1twlwySbo_m7GXcuA',
+    appId: '1:1033594137931:ios:a106059a8c5e8a20b24cce',
+    messagingSenderId: '1033594137931',
+    projectId: 'pocketcheff-firebase',
+    storageBucket: 'pocketcheff-firebase.appspot.com',
+    iosClientId: '1033594137931-s96ml5r2suf8qk90apukftosv9g8mlr2.apps.googleusercontent.com',
     iosBundleId: 'com.example.pockectcheff',
   );
 }
