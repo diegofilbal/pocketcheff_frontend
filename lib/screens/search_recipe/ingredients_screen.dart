@@ -310,12 +310,12 @@ class _IngredientsScreenState extends State<IngredientsScreen> {
     );
   }
 
-  sair() async {
-    await _firebaseAuth.signOut().then(
+  sair() {
+    _firebaseAuth.signOut().then(
       (user) => Navigator.pushReplacement(
         context,
         MaterialPageRoute(
-          builder: (context) => ChecagemPage(),
+              builder: (context) => const ChecagemPage(),
         ),
       ),
     );

@@ -1,41 +1,34 @@
 {
   "project_info": {
-    "project_number": "571903209511",
-    "project_id": "pocketcheff-dspm",
-    "storage_bucket": "pocketcheff-dspm.appspot.com"
+    "project_number": "1039045997366",
+    "project_id": "pocketcheff-dspm2",
+    "storage_bucket": "pocketcheff-dspm2.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:571903209511:android:cbf00cb0d6fe9b8b2e9e02",
+        "mobilesdk_app_id": "1:1039045997366:android:d2193168805d3cda937997",
         "android_client_info": {
           "package_name": "com.example.pockectcheff"
         }
       },
       "oauth_client": [
         {
-          "client_id": "571903209511-prdsf4814csbm4spl137fkovfa3pmbe3.apps.googleusercontent.com",
+          "client_id": "1039045997366-23k6fekbp1mh4kh9u9noth6km3n0nrc4.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBr-_PdtJOPiJkKE_iG9mQLDB4MSqGrPTI"
+          "current_key": "AIzaSyD8IhNAhBVdgN9DQcuB5N5CybUiF8McNrs"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "571903209511-prdsf4814csbm4spl137fkovfa3pmbe3.apps.googleusercontent.com",
+              "client_id": "1039045997366-23k6fekbp1mh4kh9u9noth6km3n0nrc4.apps.googleusercontent.com",
               "client_type": 3
-            },
-            {
-              "client_id": "571903209511-148mndrc2ct98gdlh1ulqrp4tn5giu5u.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.example.pockectcheff"
-              }
             }
           ]
         }
