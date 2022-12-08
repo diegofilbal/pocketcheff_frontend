@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1033594137931",
+    "project_id": "pocketcheff-firebase",
+    "storage_bucket": "pocketcheff-firebase.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1033594137931:android:19ab6c040a021650b24cce",
+        "android_client_info": {
+          "package_name": "com.example.pockectcheff"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1033594137931-b8m8qojil7i67gbskhkbfa5q8872mjfl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD-Fyf1E5ZbXRisRBsFjuxPpCBM4ruoD0Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1033594137931-b8m8qojil7i67gbskhkbfa5q8872mjfl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,9 +1,15 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:pockectcheff/models/Recipe.dart';
 import 'package:pockectcheff/screens/home/home_screen.dart';
+import 'package:pockectcheff/screens/login/checagem_page.dart';
 import 'package:pockectcheff/screens/login/register_screen.dart';
 import 'package:pockectcheff/screens/login/reset_password_screen.dart';
 import 'package:pockectcheff/screens/search_recipe/food_restrictions_screen.dart';
+import 'package:pockectcheff/snippets/firestore.dart';
 
 import '../../models/SearchTopics.dart';
 
@@ -18,6 +24,8 @@ class _IngredientsScreenState extends State<IngredientsScreen> {
   TextEditingController ingredientsController = TextEditingController();
   final GlobalKey<FormState> _formKey = GlobalKey();
   static SearchTopics IngredientsTopics = SearchTopics();
+
+  final _firebaseAuth = FirebaseAuth.instance;
 
   static List<String> ingredients = [];
   String alert = '';
@@ -238,6 +246,28 @@ class _IngredientsScreenState extends State<IngredientsScreen> {
                             style: ElevatedButton.styleFrom(
                               primary: Color.fromRGBO(255, 83, 71, 1),
                             ),
+                            onPressed: () async {
+                              _firebaseAuth.signOut().then(
+                                    (user) => Navigator.pushReplacement(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) =>
+                                            const ChecagemPage(),
+                                      ),
+                                    ),
+                                  );
+                            },
+                            child: Text("Sair"),
+                          ),
+                        ),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        ButtonTheme(
+                          child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              primary: Color.fromRGBO(255, 83, 71, 1),
+                            ),
                             onPressed: () => Navigator.push(
                               context,
                               MaterialPageRoute(
@@ -254,23 +284,29 @@ class _IngredientsScreenState extends State<IngredientsScreen> {
                           child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
                               primary: ingredients.isEmpty
-                              ? Colors.grey
-                              : Color.fromRGBO(255, 83, 71, 1),
+                                  ? Colors.grey
+                                  : Color.fromRGBO(255, 83, 71, 1),
                             ),
-                            onPressed:  ingredients.isEmpty
-                            ? () {}
-                            : () {
-                              setState(() {
-                                IngredientsTopics.ingredients = ingredients;
-                              });
-                              print(">>>>>>>>>>>>>>$ingredients");
-                              print(">>>>>>>>>>>>>>:::::${IngredientsTopics.ingredients}");
-                              Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => FoodRestrictionsScreen(topics: IngredientsTopics,),
-                              ),
-                            );},
+                            onPressed: ingredients.isEmpty
+                                ? () {}
+                                : () {
+                                    setState(() {
+                                      IngredientsTopics.ingredients =
+                                          ingredients;
+                                    });
+                                    print(">>>>>>>>>>>>>>$ingredients");
+                                    print(
+                                        ">>>>>>>>>>>>>>:::::${IngredientsTopics.ingredients}");
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) =>
+                                            FoodRestrictionsScreen(
+                                          topics: IngredientsTopics,
+                                        ),
+                                      ),
+                                    );
+                                  },
                             child: Text("Avançar"),
                           ),
                         ),
