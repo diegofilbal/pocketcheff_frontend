@@ -67,7 +67,7 @@ class HomeScreen extends StatelessWidget {
                       ),
                     )),
                 child: Text(
-                  "Sou usuárie",
+                  "Já sou usuário",
                   style: TextStyle(
                     color: Colors.white,
                   ),
